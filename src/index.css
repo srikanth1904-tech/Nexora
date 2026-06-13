@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Orbitron', 'Exo 2', 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-slate-400: #B8C7D9;
+  --color-slate-500: #8FA6C1;
+  --color-slate-300: #B8C7D9;
+  --color-slate-200: #B8C7D9;
+
+  --color-cyan-400: #00D4FF;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #000000;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: #000000;
+    overflow-x: hidden;
+    color: #B8C7D9; /* Body Text color default */
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    color: #FFFFFF !important;
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.35); /* Very subtle blue glow */
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    color: #EAF6FF !important;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.15); /* Soft glow only */
+  }
+
+  /* Custom Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #02040a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0d1e36;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00d4ff;
+    box-shadow: 0 0 10px #00d4ff;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass {
+  background: rgba(5, 8, 22, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 212, 255, 0.08);
+}
+
+.glass-premium {
+  background: rgba(11, 17, 32, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Neon Glow Utilities */
+.text-glow-blue {
+  text-shadow: 0 0 12px rgba(0, 212, 255, 0.35);
+}
+
+.text-glow-white {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.border-glow {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.25);
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+  border-color: #00d4ff;
+}
+
+/* Slow Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Pulse Animation for Glow */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 6s infinite ease-in-out;
+}
+
+/* Constellation Grid Overlay */
+.grid-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Futuristic Scanline Effect */
+.scanlines::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
