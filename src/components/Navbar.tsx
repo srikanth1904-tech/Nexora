@@ -23,7 +23,6 @@ export function Navbar() {
     { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Ecosystem", href: "#ecosystem" },
-    { label: "Showcase", href: "#showcase" },
     { label: "Contact", href: "#contact" },
   ];
 

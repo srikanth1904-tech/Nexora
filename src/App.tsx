@@ -20,62 +20,9 @@ import logoImg from "./assets/logo.png";
 import { SpaceBackground } from "./components/SpaceBackground";
 import { Navbar } from "./components/Navbar";
 import { TechOrbit } from "./components/TechOrbit";
-import { GlassCard } from "./components/GlassCard";
-
-// Project Showcase data
-const projects = [
-  {
-    title: "Aetheris AI Platform",
-    category: "AI",
-    desc: "An enterprise-grade autonomous LLM pipeline handling multi-agent orchestration and context retrieval at sub-second speeds.",
-    tags: ["LLM Agents", "VectorDB", "Node.js"],
-    status: "PRODUCTION ACTIVE"
-  },
-  {
-    title: "Hyperion Cyber-Vault",
-    category: "Security",
-    desc: "Zero-trust network access control systems leveraging biometric proof-of-work protocols and military-grade encryption keys.",
-    tags: ["Zero-Trust", "WebAuthn", "Rust"],
-    status: "SECURED"
-  },
-  {
-    title: "Nebula Cloud Mesh",
-    category: "Cloud",
-    desc: "A multi-region auto-healing network mesh providing load balancing, serverless execution parameters, and edge compilation.",
-    tags: ["Kubernetes", "gRPC", "AWS"],
-    status: "ONLINE"
-  },
-  {
-    title: "Apex Automation Engine",
-    category: "AI",
-    desc: "Proactive event-driven orchestration pipelines transforming legacy ERP systems into self-healing workflows.",
-    tags: ["Workflow", "Temporal", "Go"],
-    status: "STAGING"
-  },
-  {
-    title: "Aegis Threat Shield",
-    category: "Security",
-    desc: "Real-time AI threat monitoring nodes intercepting and modeling security breaches before execution.",
-    tags: ["Threat ML", "eBPF", "C++"],
-    status: "ACTIVE PROTECTION"
-  },
-  {
-    title: "Cosmos Multi-Region Mesh",
-    category: "Cloud",
-    desc: "Fully replicated database clusters sync'd across Google Cloud and AWS nodes for high resiliency.",
-    tags: ["Multi-Cloud", "CockroachDB", "Terraform"],
-    status: "ONLINE"
-  }
-];
-
-export default function App() {
-  const [projectFilter, setProjectFilter] = useState("All");
+import { GlassCard } from "./components/GlassCard";export default function App() {
   const [contactSuccess, setContactSuccess] = useState(false);
   const [formState, setFormState] = useState({ name: "", email: "", company: "", message: "" });
-
-  const filteredProjects = projectFilter === "All" 
-    ? projects 
-    : projects.filter(p => p.category === projectFilter);
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -356,80 +303,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* PROJECT SHOWCASE */}
-        <section id="showcase" className="py-28 px-6 border-t border-slate-950/50 bg-[#050816]/10 relative">
-          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/25 to-transparent" />
-          
-          <div className="max-w-7xl mx-auto">
-            
-            {/* Header / Filter Buttons */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-              <div>
-                <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400 mb-3 block">05 // CASE ARCHIVES</span>
-                <h2 className="font-display font-extrabold text-[clamp(2rem,4vw,3.5rem)] text-white uppercase tracking-wider">
-                  Featured Systems
-                </h2>
-              </div>
-
-              {/* Filters */}
-              <div className="inline-flex flex-wrap p-1 rounded-xl bg-slate-950/90 border border-slate-900 gap-1.5 font-mono text-[10px]">
-                {["All", "AI", "Security", "Cloud"].map((filter) => (
-                  <button
-                    key={filter}
-                    onClick={() => setProjectFilter(filter)}
-                    className={`px-4 py-2 rounded-lg font-bold transition-all duration-300 uppercase tracking-widest ${
-                      projectFilter === filter 
-                        ? "bg-cyan-500 text-black shadow-[0_0_12px_rgba(0,212,255,0.4)]" 
-                        : "text-[#60A5FA] hover:text-[#00D4FF]"
-                    }`}
-                  >
-                    {filter === "All" ? "ALL ARCHIVES" : filter}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Grid of filtered projects */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project, idx) => (
-                <GlassCard key={idx} className="p-8 group flex flex-col justify-between h-full">
-                  <div>
-                    {/* Status Badge */}
-                    <div className="flex items-center justify-between mb-6">
-                      <span className="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400">
-                        {project.category}
-                      </span>
-                      <span className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-widest text-cyan-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                        {project.status}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold tracking-wide text-white uppercase font-display group-hover:text-cyan-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="mt-4 text-slate-400 text-xs md:text-sm leading-relaxed font-light">
-                      {project.desc}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-slate-900/50">
-                    {/* Tech Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tIdx) => (
-                        <span key={tIdx} className="font-mono text-[9px] text-slate-400 px-2 py-0.5 rounded bg-slate-900/40 border border-slate-800/60">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </GlassCard>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
         {/* CONTACT SECTION */}
         <section id="contact" className="py-28 px-6 border-t border-slate-950/50 bg-[#050816]/10 relative">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/25 to-transparent" />
@@ -439,7 +312,7 @@ export default function App() {
               
               {/* Info Sidebar */}
               <div>
-                <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400 mb-3 block">07 // CLIENT CONSOLE</span>
+                <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400 mb-3 block">05 // CLIENT CONSOLE</span>
                 <h2 className="font-display font-extrabold text-[clamp(2.5rem,5vw,4.5rem)] text-white uppercase tracking-wider leading-[0.95]">
                   Start Your <br />
                   <span className="text-[#00D4FF] text-glow-blue italic font-light">Project.</span>
@@ -455,10 +328,7 @@ export default function App() {
                       contact@nexora.io
                     </a>
                   </div>
-                  <div>
-                    <span className="text-slate-500 uppercase tracking-widest block text-[9px]">UTC CLOCK TELEMETRY</span>
-                    <span className="text-cyan-400 font-bold block mt-1">OPERATIVE / SCHEDULING ENGINES ACTIVE</span>
-                  </div>
+
                 </div>
               </div>
 
@@ -487,7 +357,7 @@ export default function App() {
                             value={formState.name}
                             onChange={(e) => setFormState({...formState, name: e.target.value})}
                             className="w-full rounded-xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/30 focus:border-cyan-400/50 focus:outline-none px-11 py-3 text-sm text-white focus:ring-1 focus:ring-cyan-400/10 transition-all duration-300"
-                            placeholder="Alex Mercer"
+                            placeholder="Enter your full name"
                           />
                         </div>
                       </div>
@@ -500,7 +370,7 @@ export default function App() {
                             value={formState.company}
                             onChange={(e) => setFormState({...formState, company: e.target.value})}
                             className="w-full rounded-xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/30 focus:border-cyan-400/50 focus:outline-none px-11 py-3 text-sm text-white focus:ring-1 focus:ring-cyan-400/10 transition-all duration-300"
-                            placeholder="Aetheris Corp"
+                            placeholder="Enter your company name"
                           />
                         </div>
                       </div>
@@ -516,7 +386,7 @@ export default function App() {
                           value={formState.email}
                           onChange={(e) => setFormState({...formState, email: e.target.value})}
                           className="w-full rounded-xl bg-slate-950/80 border border-slate-800 hover:border-cyan-500/30 focus:border-cyan-400/50 focus:outline-none px-11 py-3 text-sm text-white focus:ring-1 focus:ring-cyan-400/10 transition-all duration-300"
-                          placeholder="alex@aetheris.io"
+                          placeholder="Enter your email address"
                         />
                       </div>
                     </div>
@@ -568,7 +438,6 @@ export default function App() {
               <h4 className="font-mono text-[9px] uppercase tracking-widest text-cyan-400 font-bold mb-4">Company</h4>
               <div className="flex flex-col gap-2.5 text-xs text-[#60A5FA] font-light">
                 <a href="#about" className="hover:text-[#00D4FF] transition-colors">About Us</a>
-                <a href="#showcase" className="hover:text-[#00D4FF] transition-colors">Case Archives</a>
                 <a href="#" className="hover:text-[#00D4FF] transition-colors">Documentation</a>
                 <a href="#contact" className="hover:text-[#00D4FF] transition-colors">Contact</a>
               </div>
