@@ -24,6 +24,7 @@
     background-color: #000000;
     overflow-x: hidden;
     color: #B8C7D9; /* Body Text color default */
+    text-align: justify;
   }
 
   h1 {

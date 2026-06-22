@@ -9,8 +9,6 @@ import {
   ArrowRight, 
   Check, 
   Terminal, 
-  ChevronRight, 
-  ChevronLeft, 
   Mail, 
   Building, 
   User, 
@@ -23,28 +21,6 @@ import { SpaceBackground } from "./components/SpaceBackground";
 import { Navbar } from "./components/Navbar";
 import { TechOrbit } from "./components/TechOrbit";
 import { GlassCard } from "./components/GlassCard";
-
-// Testimonials data
-const testimonials = [
-  {
-    quote: "NEXORA re-engineered our entire cloud pipeline, reducing SLA latency parameters by 42%. Truly world-class tech partners who deliver flawless execution under load.",
-    author: "Elena Rostova",
-    role: "VP of Engineering, Aetheris Systems",
-    node: "AETHERIS-NODE-01"
-  },
-  {
-    quote: "Their cognitive automation workflows transformed our service operations overnight. We scaled system capacity by 3x without increasing support overhead.",
-    author: "Marcus Vance",
-    role: "Chief Architect, Hyperion Data",
-    node: "HYPERION-NODE-04"
-  },
-  {
-    quote: "Strict type safety, robust architectural decisions, and an eye for breathtaking user interfaces. Working with NEXORA is like a peek into the next decade.",
-    author: "Sarah Jenkins",
-    role: "Director of Product, Nebula Mesh",
-    node: "NEBULA-NODE-09"
-  }
-];
 
 // Project Showcase data
 const projects = [
@@ -94,7 +70,6 @@ const projects = [
 
 export default function App() {
   const [projectFilter, setProjectFilter] = useState("All");
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [contactSuccess, setContactSuccess] = useState(false);
   const [formState, setFormState] = useState({ name: "", email: "", company: "", message: "" });
 
@@ -116,8 +91,6 @@ export default function App() {
       {/* Dynamic Cosmic Background */}
       <SpaceBackground />
 
-      {/* Grid Constellation Overlay */}
-      <div className="fixed inset-0 grid-overlay pointer-events-none z-0 opacity-40" />
 
       {/* Header/Navbar */}
       <Navbar />
@@ -172,50 +145,55 @@ export default function App() {
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/25 to-transparent" />
           
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
-              {/* Text Area */}
-              <div>
+            <div className="w-full">
+              {/* Header */}
+              <div className="text-center mb-12">
                 <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400 mb-3 block">01 // BRAND OVERVIEW</span>
-                 <h2 className="font-display font-extrabold text-[clamp(2rem,4vw,3.5rem)] text-white uppercase tracking-wider leading-[1.1]">
+                <h2 className="font-display font-extrabold text-[clamp(2rem,4vw,3.5rem)] text-white uppercase tracking-wider leading-[1.1]">
                   Driven by Innovation.<br />
                   <span className="text-[#00D4FF] text-glow-blue">Focused on Execution.</span>
                 </h2>
-                <p className="mt-6 text-slate-400 leading-relaxed font-light text-base">
-                  NEXORA architect systems designed to thrive at scale. Working directly with CTOs, enterprise heads, and founders, we replace legacy software architectures with type-safe, resilient cloud structures and agentic AI pipelines.
-                </p>
-                <p className="mt-4 text-slate-400 leading-relaxed font-light text-base">
-                  We operate at the convergence of Artificial Intelligence and Cybersecurity, engineering platforms that are not only future-ready but secure by design from the very first line of code.
-                </p>
-
-                <div className="mt-10 flex items-center gap-4">
-                  <a 
-                    href="#ecosystem" 
-                    className="inline-flex items-center gap-2 text-xs font-mono tracking-wider text-[#60A5FA] hover:text-[#00D4FF] transition-colors"
-                  >
-                    <span>EXPLORE ARCHITECTURE</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
               </div>
 
-              {/* Stats Area Grid */}
-              <div className="grid grid-cols-2 gap-6">
-                <GlassCard className="p-6 text-center group">
-                  <div className="text-3xl font-mono font-black text-cyan-400 group-hover:scale-105 transition-transform duration-300">99.99%</div>
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-slate-500 block mt-2">SYS UPTIME SLA</span>
-                </GlassCard>
-                <GlassCard className="p-6 text-center group">
-                  <div className="text-3xl font-mono font-black text-cyan-400 group-hover:scale-105 transition-transform duration-300">45M+</div>
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-slate-500 block mt-2">DAILY SECURE LOOPS</span>
-                </GlassCard>
-                <GlassCard className="p-6 text-center group">
-                  <div className="text-3xl font-mono font-black text-cyan-400 group-hover:scale-105 transition-transform duration-300">250+</div>
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-slate-500 block mt-2">NODES DEPLOYED</span>
-                </GlassCard>
-                <GlassCard className="p-6 text-center group">
-                  <div className="text-3xl font-mono font-black text-cyan-400 group-hover:scale-105 transition-transform duration-300">8+ Yrs</div>
-                  <span className="font-mono text-[9px] uppercase tracking-widest text-slate-500 block mt-2">NEURAL ENGINE R&D</span>
-                </GlassCard>
+              {/* Text Area */}
+              <div className="w-full">
+                <p className="text-slate-300 leading-relaxed font-light text-base md:text-lg">
+                  Welcome to <strong className="text-white font-medium">Nexora Solutions</strong>, a platform dedicated to delivering innovative web development solutions for businesses and academic projects for college students.
+                </p>
+                <p className="mt-6 text-slate-300 leading-relaxed font-light text-base md:text-lg">
+                  Our mission is to transform ideas into powerful digital experiences by providing high-quality websites, custom software solutions, and project development services. We specialize in creating modern, responsive, and user-friendly applications tailored to meet client requirements and academic standards.
+                </p>
+                <p className="mt-6 text-slate-300 leading-relaxed font-light text-base md:text-lg">
+                  For businesses, we develop professional websites that enhance online presence, improve customer engagement, and support business growth. For students, we offer guidance and development support for academic projects, helping them gain practical knowledge and successfully complete their coursework.
+                </p>
+                
+                <div className="mt-10">
+                  <h3 className="text-white font-display uppercase tracking-widest text-lg mb-5">Our Commitments</h3>
+                  <ul className="list-disc list-inside space-y-3 text-slate-300 font-light marker:text-cyan-400">
+                    <li>Delivering high-quality and reliable solutions.</li>
+                    <li>Maintaining professionalism and transparency.</li>
+                    <li>Following industry best practices and modern technologies.</li>
+                    <li>Ensuring client and student satisfaction through continuous support.</li>
+                  </ul>
+                </div>
+                
+                <p className="mt-10 text-slate-300 leading-relaxed font-light text-base md:text-lg">
+                  We believe that technology should be accessible, innovative, and impactful, helping individuals and organizations achieve their goals efficiently and effectively.
+                </p>
+                
+                <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-slate-800/60 pt-10">
+                  <p className="text-[#00D4FF] text-glow-blue font-medium leading-relaxed text-lg tracking-wide italic">
+                    Nexora Solutions – Turning Ideas into Digital Reality.
+                  </p>
+                  
+                  <a 
+                    href="#ecosystem" 
+                    className="inline-flex items-center gap-2 text-xs font-mono tracking-wider text-white hover:text-black transition-colors shrink-0 px-8 py-4 rounded-full bg-cyan-500 hover:bg-cyan-400 hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] font-bold"
+                  >
+                    <span>EXPLORE ARCHITECTURE</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -447,62 +425,6 @@ export default function App() {
                   </div>
                 </GlassCard>
               ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* CLIENT TESTIMONIALS */}
-        <section className="py-28 px-6 relative overflow-hidden">
-          <div className="max-w-4xl mx-auto text-center">
-            
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-cyan-400 mb-3 block">06 // FEEDBACK LOOPS</span>
-            <h2 className="font-display font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-white uppercase tracking-wider mb-14">
-              Verified Client Nodes
-            </h2>
-
-            {/* Testimonials Deck */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-cyan-500/5 blur-3xl pointer-events-none rounded-3xl" />
-              
-              <div className="glass-premium p-8 md:p-14 rounded-2xl relative border-cyan-500/25">
-                {/* Node ID indicator */}
-                <div className="absolute top-4 right-6 font-mono text-[9px] text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded border border-cyan-500/20">
-                  {testimonials[activeTestimonial].node}
-                </div>
-
-                <p className="text-lg md:text-2xl font-light italic leading-relaxed text-slate-200">
-                  "{testimonials[activeTestimonial].quote}"
-                </p>
-
-                <div className="mt-10 flex flex-col items-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00d4ff] mb-3 animate-ping" />
-                  <h4 className="text-base font-bold text-white uppercase tracking-wider font-display">
-                    {testimonials[activeTestimonial].author}
-                  </h4>
-                  <p className="text-xs font-mono text-slate-500 uppercase tracking-widest mt-1">
-                    {testimonials[activeTestimonial].role}
-                  </p>
-                </div>
-              </div>
-
-              {/* Navigation Arrows */}
-              <div className="mt-8 flex justify-center gap-4">
-                <button
-                  onClick={() => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                  className="w-11 h-11 rounded-full border border-slate-800 bg-slate-950/80 text-cyan-400 hover:border-cyan-400 hover:bg-cyan-500/5 hover:shadow-[0_0_12px_rgba(0,212,255,0.25)] transition-all duration-300 flex items-center justify-center"
-                  aria-label="Previous Testimonial"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length)}
-                  className="w-11 h-11 rounded-full border border-slate-800 bg-slate-950/80 text-cyan-400 hover:border-cyan-400 hover:bg-cyan-500/5 hover:shadow-[0_0_12px_rgba(0,212,255,0.25)] transition-all duration-300 flex items-center justify-center"
-                  aria-label="Next Testimonial"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
             </div>
 
           </div>
